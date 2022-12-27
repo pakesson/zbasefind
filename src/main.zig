@@ -26,7 +26,7 @@ pub const FirmwareFile = struct {
     pub fn open(allocator: Allocator, path: []const u8) !FirmwareFile {
         const file = try std.fs.cwd().openFile(
             path,
-            .{ .read = true },
+            .{.mode = .read_only},
         );
         defer file.close();
 
